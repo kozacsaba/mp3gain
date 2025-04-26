@@ -26,6 +26,10 @@
  *  * header needed to eliminate 'changeGain' undefined compiler warning
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef MP3GAIN_H
 #define MP3GAIN_H
 
@@ -43,11 +47,17 @@
 
 #include "rg_error.h"
 
-#ifdef asWIN32DLL
+#ifdef ACCGAIN
+    #include "../accgain/accgain.h"
+#endif
 
-void changeGain(char *filename, int leftgainchange, int rightgainchange);
-
-#endif 
+int changeGain(
+    char *filename, 
+#ifdef ACCGAIN
+    AACGainHandle aacH,
+#endif
+    int leftgainchange, 
+    int rightgainchange);
 
 int deleteFile(char *filename);
 int moveFile(char *currentfilename, char *newfilename);
@@ -62,4 +72,8 @@ void passError(MMRESULT lerrnum, int numStrings, ...);
 	/* Get/Set file datetime stamp */
 void fileTime(char *filename, timeAction action);
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

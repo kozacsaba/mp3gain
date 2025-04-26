@@ -3,6 +3,8 @@
 cmake_minimum_required(VERSION 3.22)
 project("mp3gain" VERSION 1.0)
 
+set("MP3GAIN_SOURCE_DIR" ${CMAKE_CURRENT_LIST_DIR} PARENT_SCOPE)
+
 add_library(mp3gain STATIC
     mp3gain/mp3gain.c
     mp3gain/apetag.c
