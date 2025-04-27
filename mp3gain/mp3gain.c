@@ -24,7 +24,7 @@
  *       Just do me a favor and let me know how you improve the code.
  *       Thanks.
  *
- *  Unix-ification by Stefan Partheymüller
+ *  Unix-ification by Stefan Partheymï¿½ller
  *  (other people have made Unix-compatible alterations-- I just ended up using
  *   Stefan's because it involved the least re-work)
  *
@@ -679,9 +679,6 @@ void scanFrameGain() {
 	}
 }
 
-#ifndef asWIN32DLL
-static
-#endif
 int changeGain(char *filename AACGAIN_ARG(AACGainHandle aacH), int leftgainchange, int rightgainchange) {
   unsigned long ok;
   int mode;
