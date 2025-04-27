@@ -1080,7 +1080,7 @@ int changeGain(char *filename AACGAIN_ARG(AACGainHandle aacH), int leftgainchang
   return 0;
 }
 
-
+#ifndef EXCLUDE_MAIN
 #ifndef asWIN32DLL
 
 #ifdef AACGAIN
@@ -2635,3 +2635,4 @@ int main(int argc, char **argv) {
 }
 
 #endif /* asWIN32DLL */
+#endif // EXCLUDE_MAIN
