@@ -114,6 +114,12 @@
 #define AACGAIN_ARG(x)
 #endif
 
+#ifdef MP3GAIN_SILENT
+int QuietMode = 1;
+#else
+int QuietMode = 0;
+#endif
+
 typedef struct {
 	unsigned long fileposition;
 	unsigned char val[2];
@@ -128,7 +134,6 @@ unsigned long writebuffercnt;
 unsigned char buffer[BUFFERSIZE];
 
 int writeself = 0;
-int QuietMode = 0;
 int UsingTemp = 0;
 int NowWriting = 0;
 double lastfreq = -1.0;
